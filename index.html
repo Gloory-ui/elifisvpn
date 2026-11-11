@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=78c4fae6-e230-4c56-9369-902054c0b807
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>ElifisVPN — Подписка</title>
+    <meta name="description" content="ElifisVPN — личный кабинет: статус подписки, продление и быстрое подключение." />
+    <meta name="theme-color" content="#EEF1F8" id="meta-theme-color" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%234F8CFF%27%2F%3E%3Cstop%20offset%3D%27.55%27%20stop-color%3D%27%238B5CFF%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%2322D3EE%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2716%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Ctext%20x%3D%2732%27%20y%3D%2746%27%20font-family%3D%27Arial%2CHelvetica%2Csans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27700%27%20fill%3D%27%23fff%27%20text-anchor%3D%27middle%27%3EE%3C%2Ftext%3E%3C%2Fsvg%3E" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      /* Theme bootstrap — runs before paint to avoid FOUC.
+         Priority: explicit user choice (localStorage) > Telegram colorScheme > OS preference > light. */
+      (function () {
+        function detect() {
+          try {
+            var saved = localStorage.getItem('xvpn-theme');
+            if (saved === 'light' || saved === 'dark') return saved;
+          } catch (e) {}
+          try {
+            var tg = window.Telegram && window.Telegram.WebApp;
+            if (tg && (tg.colorScheme === 'light' || tg.colorScheme === 'dark')) return tg.colorScheme;
+          } catch (e) {}
+          try {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+          } catch (e) {}
+          return 'light';
+        }
+        document.documentElement.setAttribute('data-theme', detect());
+      })();
+    </script>
+    <script type="module" crossorigin src="./app.js"></script>
+    <link rel="stylesheet" crossorigin href="./styles.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
